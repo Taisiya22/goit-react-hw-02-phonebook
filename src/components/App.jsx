@@ -1,5 +1,6 @@
 import { Component } from "react";
 import { Form } from "./Form/Form";
+import { ContactList } from "./ContactList/ContactList";
 export class App extends Component { 
     state = {
   contacts: [{id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -9,11 +10,21 @@ export class App extends Component {
   name: ''
     }
     
+    formSubmitHandler = data => { 
+        console.log(data)
+    }
+    onDelete = idCon => {
+        this.setState(prevState => ({contacts: prevState.contacts.filter(contact => contact.id !== idCon)}))
+     }
     render() { 
+        const { contacts } = this.state;
         return (
             <div>
                 <h2>Phone book</h2>
-<Form/>
+                <Form onSubmit={this.formSubmitHandler} />
+                <h2>Contacts</h2>
+                <ContactList contacts={contacts} onDelete={this.onDelete} />
+   
             </div>
         )
     }

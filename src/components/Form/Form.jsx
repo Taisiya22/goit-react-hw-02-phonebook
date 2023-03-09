@@ -8,14 +8,27 @@ export class Form extends Component {
 
     handleChange = e => {
         const { name, value } = e.currentTarget;
+        // console.log(e.currentTarget.name);
+        // console.log(e.currentTarget.value);
         this.setState({ [name]: value });
+    
     }
 
+    handleSubmit = e => {
+        e.preventDefault();
+        this.props.onSubmit(this.state);
+        this.reset();
+
+     }
+    reset = () => {
+        this.setState({name: '',
+    number: '',})
+     }
     render() {
         const { name, number } = this.state;
       return (
         <div>
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <label htmlFor="name">
           Name
           <input
