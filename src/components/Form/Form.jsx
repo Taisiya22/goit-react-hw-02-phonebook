@@ -1,9 +1,21 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
+import css from './Form.module.css';
+
+const INITIAL_STATE = {
+ name: '',
+ number: '',
+};
+
 export class Form extends Component {
+  
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+    contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  }
   state = {
-    name: '',
-    number: '',
+    ...INITIAL_STATE
   };
 
   handleChange = e => {
@@ -31,15 +43,15 @@ export class Form extends Component {
     this.reset();
   };
   reset = () => {
-    this.setState({ name: '', number: '' });
+    this.setState({...INITIAL_STATE});
   };
   render() {
     const { name, number } = this.state;
     return (
-      <div>
-        <form onSubmit={this.handleSubmit}>
+      
+        <form className={css.formWrapper} onSubmit={this.handleSubmit}>
           <label htmlFor="name">
-            Name
+            <p>Name</p>
             <input
               type="text"
               name="name"
@@ -51,7 +63,7 @@ export class Form extends Component {
             />
           </label>
           <label htmlFor="number">
-            Number
+            <p>Number</p>
             <input
               type="tel"
               name="number"
@@ -62,9 +74,9 @@ export class Form extends Component {
               required
             />
           </label>
-          <button type="submit"> Add contact</button>
+          <button className={css.addBtn} type="submit"> Add contact</button>
         </form>
-      </div>
+      
     );
   }
 }
