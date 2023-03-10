@@ -1,5 +1,4 @@
 
-
 export const ContactList = ({ contacts, onDelete }) => (
     <ul>{
         contacts.map(({ id, name, number }) => (<li key={id}>
