@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import {Helmet} from "react-helmet";
 import { Form } from './Form/Form';
 import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
@@ -16,10 +17,10 @@ export class App extends Component {
 
   formSubmitHandler = newContact => {
     this.setState(({ contacts }) => ({
-      contacts: [...contacts, newContact]
+      contacts: [...contacts, newContact],
     }));
-    };
-    
+  };
+
   onDelete = idContact => {
     this.setState(prevState => ({
       contacts: prevState.contacts.filter(contact => contact.id !== idContact),
@@ -41,6 +42,12 @@ export class App extends Component {
     const filterContact = this.getFilterContact();
     return (
       <div>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>Phonebook</title>
+          <link rel="canonical" href="http://mysite.com/example" />
+          <meta name="description" content="Helmet application" />
+        </Helmet>
         <h2>Phone book</h2>
         <Form onSubmit={this.formSubmitHandler} contacts={contacts} />
         <h2>Contacts</h2>
