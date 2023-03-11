@@ -6,6 +6,8 @@
   gap: 10px;
   width: 400px;
   padding: 20px;
+  background-image: url(https:img5.goodfon.ru/wallpaper/nbig/c/e2/kosmos-zviozdy-space.jpg);
+  border-radius: 15px;
 }
 
 .addBtn {
@@ -20,10 +22,15 @@
   margin-top: 15px;
 }
 .addBtn:hover {
-  background-color: rgb(88, 88, 209);
+  background-color: rgb(5, 5, 66);
   color: white;
 }
 p {
   font-size: large;
   font-weight: 600;
+}
+ 
+input{
+  padding: 0 10px;
+  height: 20px;
 }
