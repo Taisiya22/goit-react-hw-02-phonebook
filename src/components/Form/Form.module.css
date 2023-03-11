@@ -25,9 +25,10 @@
   background-color: rgb(5, 5, 66);
   color: white;
 }
-p {
+.title {
   font-size: large;
   font-weight: 600;
+  color: white;
 }
  
 input{
