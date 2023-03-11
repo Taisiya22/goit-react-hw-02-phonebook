@@ -13,3 +13,7 @@
   display: block;
   width: 100px;
 }
+.deleteBtn:hover {
+  background-color: rgb(5, 5, 66);
+  color: white;
+}
